@@ -1,10 +1,10 @@
 export interface IProduct {
-  id: string;
   createdAt: string;
-  nameProduct: string;
+  product: string;
   points: number;
   image: string;
-  isRedemption: string;
+  is_redemption: string;
+  id: string;
 }
 
 export interface IProductReducer {
