@@ -11,13 +11,14 @@ import {
 } from "native-base";
 import useProduct from "./hooks/use-product";
 import moment from "moment";
+import { StyleSheet } from "react-native";
 moment.locale("es");
 
 const ProductsScreen = () => {
   const { products, total, setFilter } = useProduct();
   return (
-    <Box safeArea h="100%" justifyContent="center" alignItems="center">
-      <Text>Bienvenido de vuelta!</Text>
+    <Box style={ProductsStyle.wrapper} safeArea h="100%">
+      <Text style={ProductsStyle.title}>Bienvenido de vuelta!</Text>
       <Text>Ruben Rodriguez</Text>
       <Text>Tus puntos</Text>
       <Card>
@@ -73,5 +74,17 @@ const ProductsScreen = () => {
     </Box>
   );
 };
+
+const ProductsStyle = StyleSheet.create({
+  wrapper: {
+    display: "flex",
+    flexDirection: "column",
+    padding: 20,
+  },
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+  },
+});
 
 export default ProductsScreen;

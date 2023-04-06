@@ -15,3 +15,13 @@ export default function App() {
     </Provider>
   );
 }
+
+{
+  /* <Provider store={store}>
+      <NativeBaseProvider>
+        <NavigationContainer>
+          <ProductsScreen />
+        </NavigationContainer>
+      </NativeBaseProvider>
+    </Provider> */
+}
