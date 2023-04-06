@@ -12,6 +12,7 @@ import {
 import useProduct from "./hooks/use-product";
 import moment from "moment";
 import { StyleSheet } from "react-native";
+import { IProduct } from "../../services/product/interface";
 moment.locale("es");
 
 const ProductsScreen = () => {
@@ -28,7 +29,7 @@ const ProductsScreen = () => {
       <Text>Tus movimientos</Text>
       <FlatList
         data={products}
-        renderItem={({ item }) => (
+        renderItem={({ item }: { item: IProduct }) => (
           <Box
             borderBottomWidth="1"
             _dark={{
