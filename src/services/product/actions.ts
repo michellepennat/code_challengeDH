@@ -5,6 +5,8 @@ const { product }: any = createActions({
   PRODUCT: {
     GET_PRODUCTS: () => ({}),
     GET_PRODUCTS_RESPONSE: (products: IProduct[]) => products,
+
+    SET_SELECTED_PRODUCT: (product: IProduct) => (product),
   },
 });
 

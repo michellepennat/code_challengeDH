@@ -1,5 +1,5 @@
 import { handleActions } from "redux-actions";
-import { IProductReducer } from "./interface";
+import { IProduct, IProductReducer } from "./interface";
 
 export const INITIAL_STATE: IProductReducer = {
   loading: false,
@@ -9,6 +9,7 @@ export const INITIAL_STATE: IProductReducer = {
   success: {
     products: [],
   },
+  selectedProduct: null,
 };
 
 const reducer = handleActions(
@@ -35,6 +36,14 @@ const reducer = handleActions(
           };
         },
       },
+
+      SET_SELECTED_PRODUCT: (
+        state: IProductReducer,
+        { payload: product }: { payload: IProduct }
+      ) => ({
+        ...state,
+        selectedProduct: product,
+      }),
     },
   },
   INITIAL_STATE

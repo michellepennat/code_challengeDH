@@ -15,4 +15,5 @@ export interface IProductReducer {
   success: {
     products: IProduct[];
   };
+  selectedProduct: IProduct | null;
 }
