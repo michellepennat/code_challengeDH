@@ -32,14 +32,14 @@ const ProductList = ({ selectProduct, products }: IProductListProps) => (
         onPress={() => {
           selectProduct(item);
         }}
-        style={ProductListStyle.cardButton}
+        style={ProductListStyle.product}
       >
-        <Box style={ProductListStyle.product}>
-          <HStack space={[2, 3]} justifyContent="space-between">
+        <HStack w="100%" space={[2, 3]} justifyContent="space-between">
+          <HStack>
             <Image
               size="55px"
               borderRadius={10}
-              ml="11"
+              mr="11"
               alt={item.product}
               source={{
                 uri: item.image,
@@ -51,20 +51,20 @@ const ProductList = ({ selectProduct, products }: IProductListProps) => (
                 {moment(item.createdAt).format("DD [de] MMMM, YYYY")}
               </Text>
             </VStack>
-            <Spacer />
-            <HStack>
-              <Text
-                style={ProductListStyle.points}
-                color={item.is_redemption ? "#FF0000" : "#00B833"}
-              >
-                {item.is_redemption ? "-" : "+"}
-              </Text>
-              <Text color="#000" style={ProductListStyle.points}>
-                {item.points}
-              </Text>
-            </HStack>
           </HStack>
-        </Box>
+          <Spacer />
+          <HStack>
+            <Text
+              style={ProductListStyle.points}
+              color={item.is_redemption ? "#FF0000" : "#00B833"}
+            >
+              {item.is_redemption ? "-" : "+"}
+            </Text>
+            <Text color="#000" style={ProductListStyle.points}>
+              {item.points}
+            </Text>
+          </HStack>
+        </HStack>
       </Button>
     )}
     keyExtractor={(item) => item.id}
@@ -82,7 +82,7 @@ const ProductListStyle = StyleSheet.create({
     marginBottom: 43,
   },
   product: {
-    marginBottom: 8,
+    backgroundColor: "#ffffff",
   },
   textProduct: {
     fontStyle: "normal",
@@ -105,7 +105,6 @@ const ProductListStyle = StyleSheet.create({
     fontSize: 16,
     lineHeight: 22,
   },
-  cardButton: {},
 });
 
 export default ProductList;
