@@ -14,17 +14,14 @@ export default function App() {
     <Provider store={store}>
       <NativeBaseProvider>
         <NavigationContainer>
-          <Stack.Navigator>
-            <Stack.Screen
-              name="products"
-              options={{ title: "" }}
-              component={ProductsScreen}
-            />
-            <Stack.Screen
-              name="detail"
-              options={{ title: "" }}
-              component={DetailProductScreen}
-            />
+          <Stack.Navigator
+            initialRouteName="products"
+            screenOptions={{
+              headerShown: false,
+            }}
+          >
+            <Stack.Screen name="products" component={ProductsScreen} />
+            <Stack.Screen name="detail" component={DetailProductScreen} />
           </Stack.Navigator>
         </NavigationContainer>
       </NativeBaseProvider>
