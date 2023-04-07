@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../../services/types/redux";
 import ProductActions from "../../../services/product/actions";
 
-type enumFilter = "all" | "won" | "redeemed";
+export type enumFilter = "all" | "won" | "redeemed";
 
 const useProduct = () => {
   const dispatch = useAppDispatch();
@@ -40,6 +40,7 @@ const useProduct = () => {
     }),
     total,
     setFilter,
+    filter
   };
 };
 
