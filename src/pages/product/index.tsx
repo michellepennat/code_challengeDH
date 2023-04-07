@@ -6,19 +6,21 @@ import {
   FlatList,
   HStack,
   Spacer,
+  StatusBar,
   Text,
   VStack,
 } from "native-base";
 import useProduct from "./hooks/use-product";
 import moment from "moment";
-import { StyleSheet } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { IProduct } from "../../services/product/interface";
 moment.locale("es");
 
 const ProductsScreen = () => {
   const { products, total, setFilter } = useProduct();
   return (
-    <Box style={ProductsStyle.wrapper} safeArea h="100%">
+    <View style={ProductsStyle.wrapper}>
+      <StatusBar barStyle={"dark-content"} backgroundColor="#f8f8f8" />
       <Text style={ProductsStyle.title}>Bienvenido de vuelta!</Text>
       <Text>Ruben Rodriguez</Text>
       <Text>Tus puntos</Text>
@@ -72,7 +74,7 @@ const ProductsScreen = () => {
       <Button color={"#000"} onPress={() => setFilter("all")}>
         Todos
       </Button>
-    </Box>
+    </View>
   );
 };
 
@@ -83,8 +85,12 @@ const ProductsStyle = StyleSheet.create({
     padding: 20,
   },
   title: {
-    fontSize: 24,
-    fontWeight: "bold",
+    // fontFamily:'Avenir',
+    fontStyle: "normal",
+    fontWeight: "800",
+    fontSize: 20,
+    lineHeight: 27,
+    color: "#020202",
   },
 });
 
