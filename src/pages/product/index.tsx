@@ -1,5 +1,6 @@
 import { Spinner, Text } from "native-base";
 import { Dimensions, StyleSheet, View } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import PointBox from "./components/point-box";
@@ -16,7 +17,7 @@ const ProductsScreen = ({ navigation }: IProductScreen) => {
   const { products, total, setFilter, filter, loading, selectProduct } =
     useProduct({ navigation: navigation });
   return (
-    <View style={ProductsStyle.wrapper}>
+    <SafeAreaView style={ProductsStyle.wrapper}>
       {loading && <Spinner />}
       {!loading && (
         <>
@@ -28,7 +29,7 @@ const ProductsScreen = ({ navigation }: IProductScreen) => {
           <Footer actualFilter={filter} setFilter={setFilter} />
         </>
       )}
-    </View>
+    </SafeAreaView>
   );
 };
 
@@ -37,22 +38,7 @@ const ProductsStyle = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     padding: 20,
-  },
-  title: {
-    // fontFamily:'Avenir',
-    fontStyle: "normal",
-    fontWeight: "800",
-    fontSize: 20,
-    lineHeight: 27,
-    color: "#020202",
-  },
-  textUser: {
-    // fontFamily:'Avenir',
-    fontStyle: "normal",
-    fontWeight: "400",
-    fontSize: 16,
-    lineHeight: 21.86,
-    color: "#020202",
+    backgroundColor:"#F8F8F8",
   },
   subtitle: {
     // fontFamily:'Avenir',
@@ -62,74 +48,6 @@ const ProductsStyle = StyleSheet.create({
     lineHeight: 19,
     color: "#9B9898",
     marginVertical: 20,
-  },
-  card: {
-    width: 286,
-    height: 143,
-  },
-  month: {
-    // fontFamily:'Avenir',
-    fontStyle: "normal",
-    fontWeight: "800",
-    fontSize: 16,
-    lineHeight: 22,
-    color: "#ffffff",
-    marginBottom: 7,
-  },
-  totalPoints: {
-    // fontFamily:'Avenir',
-    fontStyle: "normal",
-    fontWeight: "800",
-    fontSize: 32,
-    lineHeight: 44,
-    color: "#ffffff",
-    marginBottom: 7,
-    textAlign: "center",
-  },
-  listProducts: {
-    height: screenHeight - 490,
-    borderRadius: 10,
-    paddingTop: 23,
-    paddingStart: 10,
-    paddingEnd: 7.56,
-    paddingBottom: 20,
-    marginBottom: 43,
-  },
-  product: {
-    marginBottom: 8,
-  },
-  textProduct: {
-    // fontFamily:'Avenir',
-    fontStyle: "normal",
-    fontWeight: "800",
-    fontSize: 14,
-    lineHeight: 19,
-    color: "#000000",
-    marginBottom: 7,
-  },
-  date: {
-    // fontFamily:'Avenir',
-    fontStyle: "normal",
-    fontWeight: "400",
-    fontSize: 12,
-    lineHeight: 16,
-    color: "#000000",
-  },
-  points: {
-    // fontFamily:'Avenir',
-    fontStyle: "normal",
-    fontWeight: "800",
-    fontSize: 16,
-    lineHeight: 22,
-  },
-  primaryButton: {
-    // fontFamily:'Avenir',
-    backgroundColor: "#334FFA",
-    fontStyle: "normal",
-    fontWeight: "bold",
-    fontSize: 12,
-    lineHeight: 16,
-    color: "#ffffff",
   },
 });
 
