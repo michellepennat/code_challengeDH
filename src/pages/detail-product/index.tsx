@@ -21,7 +21,7 @@ const DetailProductScreen = () => {
       />
       <Text>Detalles del producto:</Text>
       <Text>
-        Comprado el
+        Comprado el{" "}
         {moment(selectedProduct?.createdAt).format("DD [de] MMMM, YYYY")}
       </Text>
       <Text>
