@@ -1,4 +1,5 @@
 import moment from "moment";
+import "moment/locale/es";
 import {
   Box,
   Button,
@@ -11,7 +12,6 @@ import {
 } from "native-base";
 import { Dimensions, StyleSheet } from "react-native";
 import { IProduct } from "../../../services/product/interface";
-import "moment/locale/es";
 
 moment.locale("es");
 
@@ -85,7 +85,6 @@ const ProductListStyle = StyleSheet.create({
     marginBottom: 8,
   },
   textProduct: {
-    // fontFamily:'Avenir',
     fontStyle: "normal",
     fontWeight: "800",
     fontSize: 14,
@@ -94,7 +93,6 @@ const ProductListStyle = StyleSheet.create({
     marginBottom: 7,
   },
   date: {
-    // fontFamily:'Avenir',
     fontStyle: "normal",
     fontWeight: "400",
     fontSize: 12,
@@ -102,7 +100,6 @@ const ProductListStyle = StyleSheet.create({
     color: "#000000",
   },
   points: {
-    // fontFamily:'Avenir',
     fontStyle: "normal",
     fontWeight: "800",
     fontSize: 16,

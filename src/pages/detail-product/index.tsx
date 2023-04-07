@@ -9,7 +9,6 @@ moment.locale("es");
 
 const DetailProductScreen = () => {
   const { selectedProduct } = useDetailProduct();
-  // if (!selectedProduct) <>No</>;
   return (
     <>
       <SafeAreaView style={DetailProductStyle.areaView}>
@@ -44,6 +43,7 @@ const DetailProductScreen = () => {
           {selectedProduct?.points} puntos
         </Text>
         <Button
+        
           _text={{ fontWeight: "bold" }}
           style={DetailProductStyle.primaryButton}
           width="100%"
@@ -71,7 +71,6 @@ const DetailProductStyle = StyleSheet.create({
     padding: 20,
   },
   title: {
-    // fontFamily:'Avenir',
     fontStyle: "normal",
     fontWeight: "800",
     fontSize: 24,
@@ -83,7 +82,6 @@ const DetailProductStyle = StyleSheet.create({
     borderRadius: 10,
   },
   subtitle: {
-    // fontFamily:'Avenir',
     fontStyle: "normal",
     fontWeight: "800",
     fontSize: 14,
@@ -92,14 +90,12 @@ const DetailProductStyle = StyleSheet.create({
     marginVertical: 20,
   },
   textDate: {
-    // fontFamily:'Avenir',
     fontStyle: "normal",
     fontWeight: "800",
     fontSize: 16,
     lineHeight: 22,
   },
   textPoints: {
-    // fontFamily:'Avenir',
     fontStyle: "normal",
     fontWeight: "800",
     fontSize: 16,
@@ -107,7 +103,6 @@ const DetailProductStyle = StyleSheet.create({
     marginTop: 12,
   },
   primaryButton: {
-    // fontFamily:'Avenir',
     backgroundColor: "#334FFA",
     fontStyle: "normal",
     fontSize: 12,

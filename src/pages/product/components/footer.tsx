@@ -45,7 +45,6 @@ const Footer = ({ actualFilter, setFilter }: IFooterProps) => (
 
 const FooterStyle = StyleSheet.create({
   primaryButton: {
-    // fontFamily:'Avenir',
     backgroundColor: "#334FFA",
     fontStyle: "normal",
     fontWeight: "bold",

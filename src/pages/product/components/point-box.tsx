@@ -1,14 +1,4 @@
-import {
-  Button,
-  Box,
-  FlatList,
-  HStack,
-  Spacer,
-  StatusBar,
-  Text,
-  VStack,
-  Image,
-} from "native-base";
+import { Box, Text } from "native-base";
 import { StyleSheet } from "react-native";
 
 interface IPointBoxProps {
@@ -36,7 +26,6 @@ const PointBoxStyle = StyleSheet.create({
     height: 143,
   },
   month: {
-    // fontFamily:'Avenir',
     fontStyle: "normal",
     fontWeight: "800",
     fontSize: 16,
@@ -45,7 +34,6 @@ const PointBoxStyle = StyleSheet.create({
     marginBottom: 7,
   },
   totalPoints: {
-    // fontFamily:'Avenir',
     fontStyle: "normal",
     fontWeight: "800",
     fontSize: 32,

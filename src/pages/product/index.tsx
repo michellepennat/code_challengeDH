@@ -1,13 +1,11 @@
 import { Spinner, Text } from "native-base";
-import { Dimensions, StyleSheet, View } from "react-native";
+import { StyleSheet } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Footer from "./components/footer";
 import Header from "./components/header";
 import PointBox from "./components/point-box";
 import ProductList from "./components/product-list";
 import useProduct from "./hooks/use-product";
-
-const screenHeight = Dimensions.get("window").height;
 
 interface IProductScreen {
   navigation: any;
@@ -38,10 +36,9 @@ const ProductsStyle = StyleSheet.create({
     display: "flex",
     flexDirection: "column",
     padding: 20,
-    backgroundColor:"#F8F8F8",
+    backgroundColor: "#F8F8F8",
   },
   subtitle: {
-    // fontFamily:'Avenir',
     fontStyle: "normal",
     fontWeight: "800",
     fontSize: 14,

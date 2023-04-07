@@ -13,7 +13,6 @@ const Header = () => {
 
 const HeaderStyle = StyleSheet.create({
   title: {
-    // fontFamily:'Avenir',
     fontStyle: "normal",
     fontWeight: "800",
     fontSize: 20,
@@ -21,7 +20,6 @@ const HeaderStyle = StyleSheet.create({
     color: "#020202",
   },
   textUser: {
-    // fontFamily:'Avenir',
     fontStyle: "normal",
     fontWeight: "400",
     fontSize: 16,
