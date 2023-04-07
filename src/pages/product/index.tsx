@@ -1,39 +1,33 @@
-import {
-  Button,
-  Box,
-  FlatList,
-  HStack,
-  Spacer,
-  StatusBar,
-  Text,
-  VStack,
-  Image,
-} from "native-base";
-import useProduct from "./hooks/use-product";
-import moment from "moment";
-import { StyleSheet, View } from "react-native";
-import { IProduct } from "../../services/product/interface";
-import { Dimensions } from "react-native";
+import { Spinner, Text } from "native-base";
+import { Dimensions, StyleSheet, View } from "react-native";
+import Footer from "./components/footer";
 import Header from "./components/header";
 import PointBox from "./components/point-box";
 import ProductList from "./components/product-list";
-import Footer from "./components/footer";
+import useProduct from "./hooks/use-product";
 
 const screenHeight = Dimensions.get("window").height;
-console.log(screenHeight - 374);
 
-moment.locale("es");
+interface IProductScreen {
+  navigation: any;
+}
 
-const ProductsScreen = () => {
-  const { products, total, setFilter,filter } = useProduct();
+const ProductsScreen = ({ navigation }: IProductScreen) => {
+  const { products, total, setFilter, filter, loading, selectProduct } =
+    useProduct({ navigation: navigation });
   return (
     <View style={ProductsStyle.wrapper}>
-      <Header />
-      <Text style={ProductsStyle.subtitle}>Tus puntos</Text>
-      <PointBox total={total} />
-      <Text style={ProductsStyle.subtitle}>Tus movimientos</Text>
-      <ProductList products={products} />
-      <Footer actualFilter={filter} setFilter={setFilter} />
+      {loading && <Spinner />}
+      {!loading && (
+        <>
+          <Header />
+          <Text style={ProductsStyle.subtitle}>Tus puntos</Text>
+          <PointBox total={total} />
+          <Text style={ProductsStyle.subtitle}>Tus movimientos</Text>
+          <ProductList selectProduct={selectProduct} products={products} />
+          <Footer actualFilter={filter} setFilter={setFilter} />
+        </>
+      )}
     </View>
   );
 };
