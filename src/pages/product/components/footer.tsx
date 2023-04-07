@@ -12,14 +12,15 @@ const Footer = ({ actualFilter, setFilter }: IFooterProps) => (
     {actualFilter === "all" && (
       <>
         <Button
+          _text={{ fontWeight: "bold" }}
           style={FooterStyle.primaryButton}
           width="48%"
-          fontWeight="bold"
           onPress={() => setFilter("won")}
         >
           Ganados
         </Button>
         <Button
+          _text={{ fontWeight: "bold" }}
           style={FooterStyle.primaryButton}
           width="48%"
           onPress={() => setFilter("redeemed")}
@@ -30,6 +31,7 @@ const Footer = ({ actualFilter, setFilter }: IFooterProps) => (
     )}
     {actualFilter !== "all" && (
       <Button
+        _text={{ fontWeight: "bold" }}
         style={FooterStyle.primaryButton}
         width="100%"
         fontWeight="bold"
@@ -50,6 +52,8 @@ const FooterStyle = StyleSheet.create({
     fontSize: 12,
     lineHeight: 16,
     color: "#ffffff",
+    borderRadius: 10,
+    height: 50,
   },
 });
 
