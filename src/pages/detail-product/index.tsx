@@ -7,7 +7,11 @@ import useDetailProduct from "./hooks";
 
 moment.locale("es");
 
-const DetailProductScreen = () => {
+interface IDetailProductScreenProps {
+  navigation: any;
+}
+
+const DetailProductScreen = ({ navigation }: IDetailProductScreenProps) => {
   const { selectedProduct } = useDetailProduct();
   return (
     <>
@@ -43,7 +47,7 @@ const DetailProductScreen = () => {
           {selectedProduct?.points} puntos
         </Text>
         <Button
-        
+          onPress={() => navigation.goBack()}
           _text={{ fontWeight: "bold" }}
           style={DetailProductStyle.primaryButton}
           width="100%"
