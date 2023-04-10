@@ -1,7 +1,7 @@
 # Code Challenge Digital@FEMSA | Expo, typescript, Jest
 
 
-![Vista de la app](https://raw.githubusercontent.com/michellepennat/code_challengeDH/main/asset/code_challenge.jpg)
+![Vista de la app](https://github.com/michellepennat/code_challengeDH/blob/main/assets/code_challenge.jpg)
 
 ## Project setup
 
