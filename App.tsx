@@ -1,7 +1,7 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { NativeBaseProvider } from "native-base";
-import "react-native-gesture-handler";
+// import "react-native-gesture-handler";
 import { Provider } from "react-redux";
 import DetailProductScreen from "./src/pages/detail-product";
 import ProductsScreen from "./src/pages/product";
@@ -9,7 +9,7 @@ import store from "./src/services/store";
 
 const Stack = createStackNavigator();
 
-export default function App() {
+const App = () => {
   return (
     <Provider store={store}>
       <NativeBaseProvider>
@@ -27,4 +27,6 @@ export default function App() {
       </NativeBaseProvider>
     </Provider>
   );
-}
+};
+
+export default App;

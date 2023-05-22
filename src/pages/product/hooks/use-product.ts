@@ -1,22 +1,23 @@
 import { useState, useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../../services/types/redux";
-import ProductActions from "../../../services/product/actions";
+import { getProducts } from "../../../services/product/thunk";
 import { IProduct } from "../../../services/product/interface";
+import { setSelectedProduct } from "../../../services/product/slice";
 
 export type enumFilter = "all" | "won" | "redeemed";
 
-interface IUseProductProps{
+interface IUseProductProps {
   navigation: any;
 }
 
-const useProduct = ({navigation}: IUseProductProps) => {
+const useProduct = ({ navigation }: IUseProductProps) => {
   const dispatch = useAppDispatch();
-  const { success, loading } = useAppSelector((state) => state.product);
+  const { success, loading } = useAppSelector((state) => state.products);
   const [total, setTotal] = useState(0);
   const [filter, setFilter] = useState<enumFilter>("all");
 
   const selectProduct = (product: IProduct) => {
-    dispatch(ProductActions.setSelectedProduct(product));
+    dispatch(setSelectedProduct(product));
     navigation.navigate("detail", { id: product.id });
   };
 
@@ -33,7 +34,7 @@ const useProduct = ({navigation}: IUseProductProps) => {
   }, [success.products]);
 
   useEffect(() => {
-    dispatch(ProductActions.getProducts());
+    dispatch(getProducts());
   }, []);
 
   return {
@@ -52,7 +53,7 @@ const useProduct = ({navigation}: IUseProductProps) => {
     setFilter,
     filter,
     loading,
-    selectProduct
+    selectProduct,
   };
 };
 
