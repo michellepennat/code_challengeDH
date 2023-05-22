@@ -3,10 +3,10 @@ import "moment/locale/es";
 import {
   Box,
   Button,
+  ChevronRightIcon,
   FlatList,
   HStack,
   Image,
-  Spacer,
   Text,
   VStack,
 } from "native-base";
@@ -33,27 +33,30 @@ const ProductList = ({ selectProduct, products }: IProductListProps) => (
           selectProduct(item);
         }}
         style={ProductListStyle.product}
+        w={"100%"}
+        width={"100%"}
       >
-        <HStack w="100%" space={[2, 3]} justifyContent="space-between">
-          <HStack>
-            <Image
-              size="55px"
-              borderRadius={10}
-              mr="11"
-              alt={item.product}
-              source={{
-                uri: item.image,
-              }}
-            />
-            <VStack>
-              <Text style={ProductListStyle.textProduct}>{item.product}</Text>
-              <Text style={ProductListStyle.date}>
-                {moment(item.createdAt).format("DD [de] MMMM, YYYY")}
-              </Text>
-            </VStack>
-          </HStack>
-          <Spacer />
-          <HStack>
+        <HStack>
+          <Image
+            size="55px"
+            borderRadius={10}
+            mr="11"
+            alt={item.product}
+            source={{
+              uri: item.image,
+            }}
+          />
+          <VStack width={"50%"}>
+            <Text style={ProductListStyle.textProduct}>{item.product}</Text>
+            <Text style={ProductListStyle.date}>
+              {moment(item.createdAt).format("DD [de] MMMM, YYYY")}
+            </Text>
+          </VStack>
+          <HStack
+            width={"30%"}
+            justifyContent={"flex-end"}
+            alignItems={"center"}
+          >
             <Text
               style={ProductListStyle.points}
               color={item.is_redemption ? "#FF0000" : "#00B833"}
@@ -63,6 +66,9 @@ const ProductList = ({ selectProduct, products }: IProductListProps) => (
             <Text color="#000" style={ProductListStyle.points}>
               {item.points}
             </Text>
+            <Box style={ProductListStyle.icon}>
+              <ChevronRightIcon />
+            </Box>
           </HStack>
         </HStack>
       </Button>
@@ -83,6 +89,12 @@ const ProductListStyle = StyleSheet.create({
   },
   product: {
     backgroundColor: "#ffffff",
+    justifyContent: "space-between",
+    display: "flex",
+    flexDirection: "row",
+    padding: 0,
+    marginBottom: 20,
+    minWidth: "100%",
   },
   textProduct: {
     fontStyle: "normal",
@@ -104,6 +116,11 @@ const ProductListStyle = StyleSheet.create({
     fontWeight: "800",
     fontSize: 16,
     lineHeight: 22,
+  },
+  icon: {
+    color: "#000000",
+    marginLeft: 17.23,
+    justifyContent: "center",
   },
 });
 
