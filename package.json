@@ -16,11 +16,10 @@
     ],
     "collectCoverage": true,
     "collectCoverageFrom": [
-      "**/*.{ts,tsx}",
+      "**/*.{js,jsx}",
       "!**/coverage/**",
       "!**/node_modules/**",
-      "!**/babel.config.js",
-      "!**/jest.setup.js"
+      "!**/babel.config.js"
     ]
   },
   "dependencies": {
