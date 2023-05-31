@@ -9,6 +9,20 @@
     "web": "expo start --web",
     "test": "jest"
   },
+  "jest": {
+    "preset": "jest-expo",
+    "transformIgnorePatterns": [
+      "node_modules/(?!((jest-)?react-native|@react-native(-community)?)|expo(nent)?|@expo(nent)?/.*|@expo-google-fonts/.*|react-navigation|@react-navigation/.*|@unimodules/.*|unimodules|sentry-expo|native-base|react-native-svg)"
+    ],
+    "collectCoverage": true,
+    "collectCoverageFrom": [
+      "**/*.{ts,tsx}",
+      "!**/coverage/**",
+      "!**/node_modules/**",
+      "!**/babel.config.js",
+      "!**/jest.setup.js"
+    ]
+  },
   "dependencies": {
     "@expo/webpack-config": "^0.17.2",
     "@react-navigation/native": "^6.1.3",
@@ -28,12 +42,16 @@
     "react-native-svg": "13.4.0",
     "react-native-web": "~0.18.9",
     "react-redux": "^8.0.5",
+    "react-test-renderer": "18.1.0",
     "redux-logger": "^3.0.6",
     "redux-saga": "^1.2.2",
     "redux-thunk": "^2.4.2"
   },
   "devDependencies": {
     "@babel/core": "^7.12.9",
+    "@testing-library/jest-native": "^5.4.2",
+    "@testing-library/react-native": "^12.1.2",
+    "@types/jest": "^29.5.1",
     "@types/react": "~18.0.14",
     "@types/react-native": "~0.70.6",
     "@types/redux-logger": "^3.0.9",
