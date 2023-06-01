@@ -1,5 +1,5 @@
-import { Box, Text } from "native-base";
-import { StyleSheet } from "react-native";
+import { Box } from "native-base";
+import { StyleSheet, Text } from "react-native";
 
 interface IPointBoxProps {
   total: number;

@@ -1,10 +1,11 @@
-import { StatusBar, Text } from "native-base";
+import { StatusBar } from "expo-status-bar";
+import { Text } from "native-base";
 import { StyleSheet } from "react-native";
 
 const Header = () => {
   return (
     <>
-      <StatusBar barStyle="dark-content" backgroundColor="#f8f8f8" />
+      <StatusBar style="dark" backgroundColor="#f8f8f8" />
       <Text style={HeaderStyle.title}>Bienvenido de vuelta!</Text>
       <Text style={HeaderStyle.textUser}>Ruben Rodriguez</Text>
     </>
