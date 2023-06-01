@@ -8,6 +8,21 @@ test("Should render text", () => {
   expect(textElement).toBeDefined();
 });
 
+test("Should render points", () => {
+  const total = 100;
+  render(<PointBox total={total} />);
+  const pointsElement = screen.getByText(`${total} pts`);
+  expect(pointsElement).toBeDefined();
+});
+
+test("Should render text header", () => {
+  render(<Header />);
+  const titleElement = screen.getByText("Bienvenido de vuelta!");
+  const subtitleElement = screen.getByText("Ruben Rodriguez");
+  expect(titleElement).toBeDefined();
+  expect(subtitleElement).toBeDefined();
+});
+
 test("Should render text header", () => {
   render(<Header />);
   const titleElement = screen.getByText("Bienvenido de vuelta!");
