@@ -14,32 +14,38 @@ Object.defineProperty(window, "matchMedia", {
 
 jest.mock("native-base", () => {
   const React = require("react");
+  const nativeBase = jest.requireActual("native-base");
   const { View, Text, Button } = require("react-native");
 
-  // Componente Button
+  // Component Button
   const MockedButton = jest.fn(({ children, ...props }) => (
-    <Button {...props}>{children}</Button>
+    <Button title="" {...props}>{children}</Button>
   ));
 
-  // Componente View
+  // Component View
   const MockedView = jest.fn(({ children, ...props }) => (
     <View {...props}>{children}</View>
   ));
 
-  // Componente Box
+  // Component Box
   const MockedBox = jest.fn(({ children, ...props }) => (
     <View {...props}>{children}</View>
   ));
+  const MockedHStack = jest.fn(({ children, ...props }) => (
+    <View {...props}>{children}</View>
+  ));
 
-  // Componente Text
+  // Component Text
   const MockedText = jest.fn(({ children, ...props }) => (
     <Text {...props}>{children}</Text>
   ));
 
   return {
+    Button: jest.fn().mockReturnValue(null),
     Button: MockedButton,
     View: MockedView,
     Text: MockedText,
     Box: MockedBox,
+    HStack: MockedHStack,
   };
 });

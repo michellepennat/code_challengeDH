@@ -12,6 +12,8 @@ const Footer = ({ actualFilter, setFilter }: IFooterProps) => (
     {actualFilter === "all" && (
       <>
         <Button
+          accessibilityRole="button"
+          testID="won"
           _text={{ fontWeight: "bold" }}
           style={FooterStyle.primaryButton}
           width="48%"
@@ -20,6 +22,8 @@ const Footer = ({ actualFilter, setFilter }: IFooterProps) => (
           Ganados
         </Button>
         <Button
+          accessibilityRole="button"
+          testID="redeemed"
           _text={{ fontWeight: "bold" }}
           style={FooterStyle.primaryButton}
           width="48%"
@@ -31,6 +35,8 @@ const Footer = ({ actualFilter, setFilter }: IFooterProps) => (
     )}
     {actualFilter !== "all" && (
       <Button
+        accessibilityRole="button"
+        testID="all"
         _text={{ fontWeight: "bold" }}
         style={FooterStyle.primaryButton}
         width="100%"
