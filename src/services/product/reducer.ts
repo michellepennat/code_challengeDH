@@ -1,5 +1,5 @@
-import { handleActions } from "redux-actions";
-import { IProduct, IProductReducer } from "./interface";
+import actions from "./actions";
+import { IProductReducer } from "./interface";
 
 export const INITIAL_STATE: IProductReducer = {
   loading: false,
@@ -12,41 +12,34 @@ export const INITIAL_STATE: IProductReducer = {
   selectedProduct: null,
 };
 
-const reducer = handleActions(
-  {
-    PRODUCT: {
-      GET_PRODUCTS: (state: IProductReducer) => ({
+const reducer = (state: IProductReducer, action: any) => {
+  switch (action.type) {
+    case actions.GET_PRODUCTS:
+      return {
         ...state,
         loading: true,
         error: { ...state.error, products: "" },
-      }),
-      GET_PRODUCTS_RESPONSE: {
-        next(state: IProductReducer, { payload }: any) {
-          return {
-            ...state,
-            loading: false,
-            success: { ...state.success, products: payload },
-          };
-        },
-        throw(state: IProductReducer, { payload: { message } }: any) {
-          return {
-            ...state,
-            loading: false,
-            error: { ...state.error, products: message },
-          };
-        },
-      },
-
-      SET_SELECTED_PRODUCT: (
-        state: IProductReducer,
-        { payload: product }: { payload: IProduct }
-      ) => ({
+      };
+    case actions.GET_PRODUCTS_RESPONSE:
+      return {
         ...state,
-        selectedProduct: product,
-      }),
-    },
-  },
-  INITIAL_STATE
-);
+        loading: false,
+        success: { ...state.success, products: action.payload },
+      };
+    case "GET_PRODUCTS_ERROR":
+      return {
+        ...state,
+        loading: false,
+        error: { ...state.error, products: action.payload },
+      };
+    case "SET_SELECTED_PRODUCT":
+      return {
+        ...state,
+        selectedProduct: action.payload,
+      };
+    default:
+      return state;
+  }
+};
 
 export default reducer;
