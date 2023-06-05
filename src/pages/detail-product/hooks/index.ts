@@ -1,11 +1,11 @@
-import { useAppSelector } from "../../../services/types/redux";
+// import { useAppSelector } from "../../../services/types/redux";
 
-const useDetailProduct = () => {
-  const { selectedProduct } = useAppSelector((state) => state.product);
+// const useDetailProduct = () => {
+//   const { selectedProduct } = useAppSelector((state) => state.product);
 
-  return {
-    selectedProduct,
-  };
-};
+//   return {
+//     selectedProduct,
+//   };
+// };
 
-export default useDetailProduct;
+// export default useDetailProduct;

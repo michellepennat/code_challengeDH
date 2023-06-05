@@ -1,6 +1,6 @@
 import { Button, HStack } from "native-base";
 import { StyleSheet } from "react-native";
-import { enumFilter } from "../hooks/use-product";
+import { enumFilter } from "../hooks/use-product eror";
 
 interface IFooterProps {
   actualFilter: enumFilter;

@@ -1,24 +1,61 @@
-import { useState, useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "../../../services/types/redux";
-import ProductActions from "../../../services/product/actions";
+import { useContext, useEffect, useState } from "react";
+import {
+  ProductsContext,
+  ProductsDispatchContext,
+} from "../../../services/product/store";
+import ProductActions, {
+  ProductActionsEnum,
+} from "../../../services/product/actions";
 import { IProduct } from "../../../services/product/interface";
 
 export type enumFilter = "all" | "won" | "redeemed";
 
-interface IUseProductProps{
+interface IUseProductProps {
   navigation: any;
 }
 
-const useProduct = ({navigation}: IUseProductProps) => {
-  const dispatch = useAppDispatch();
-  const { success, loading } = useAppSelector((state) => state.product);
+const useProduct = ({ navigation }: IUseProductProps) => {
+  const dispatch = useContext(ProductsDispatchContext);
+  const { success, loading } = useContext(ProductsContext);
   const [total, setTotal] = useState(0);
   const [filter, setFilter] = useState<enumFilter>("all");
 
   const selectProduct = (product: IProduct) => {
-    dispatch(ProductActions.setSelectedProduct(product));
+    dispatch(ProductActions.SET_SELECTED_PRODUCT);
     navigation.navigate("detail", { id: product.id });
   };
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        dispatch(ProductActions.GET_PRODUCTS_RESPONSE);
+        const response = await fetch(
+          "https://6222994f666291106a29f999.mockapi.io/api/v1/products"
+        );
+        const data = await response.json();
+
+        dispatch({
+          type: ProductActionsEnum.GET_PRODUCTS_RESPONSE,
+          payload: data,
+        });
+        // dispatch({
+        //   type: ProductActionsEnum.GET_PRODUCTS_LOADING,
+        //   payload: false,
+        // });
+      } catch (error) {
+        // dispatch({
+        //   type: ProductActionsEnum.GET_PRODUCTS_ERROR,
+        //   payload: error,
+        // });
+        // dispatch({
+        //   type: ProductActionsEnum.GET_PRODUCTS_LOADING,
+        //   payload: false,
+        // });
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   useEffect(() => {
     setTotal(
@@ -31,10 +68,6 @@ const useProduct = ({navigation}: IUseProductProps) => {
       }, 0)
     );
   }, [success.products]);
-
-  useEffect(() => {
-    dispatch(ProductActions.getProducts());
-  }, []);
 
   return {
     products: success.products.filter((product) => {
@@ -52,7 +85,7 @@ const useProduct = ({navigation}: IUseProductProps) => {
     setFilter,
     filter,
     loading,
-    selectProduct
+    selectProduct,
   };
 };
 
