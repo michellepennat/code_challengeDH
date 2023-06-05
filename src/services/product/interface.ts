@@ -1,3 +1,5 @@
+import { actions } from "./actions";
+
 export interface IProduct {
   createdAt: string;
   product: string;
@@ -16,4 +18,8 @@ export interface IProductReducer {
     products: IProduct[];
   };
   selectedProduct: IProduct | null;
+}
+export interface IProductAction {
+  type: actions;
+  payload: any;
 }

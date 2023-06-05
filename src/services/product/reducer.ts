@@ -1,18 +1,7 @@
-import actions from "./actions";
-import { IProductReducer } from "./interface";
+import { actions } from "./actions";
+import { IProductAction, IProductReducer } from "./interface";
 
-export const INITIAL_STATE: IProductReducer = {
-  loading: false,
-  error: {
-    products: "",
-  },
-  success: {
-    products: [],
-  },
-  selectedProduct: null,
-};
-
-const reducer = (state: IProductReducer, action: any) => {
+const reducer = (state: IProductReducer, action: IProductAction) => {
   switch (action.type) {
     case actions.GET_PRODUCTS:
       return {
@@ -26,13 +15,13 @@ const reducer = (state: IProductReducer, action: any) => {
         loading: false,
         success: { ...state.success, products: action.payload },
       };
-    case "GET_PRODUCTS_ERROR":
+    case actions.GET_PRODUCTS_ERROR:
       return {
         ...state,
         loading: false,
         error: { ...state.error, products: action.payload },
       };
-    case "SET_SELECTED_PRODUCT":
+    case actions.SET_SELECTED_PRODUCT:
       return {
         ...state,
         selectedProduct: action.payload,
